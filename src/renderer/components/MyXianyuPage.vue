@@ -1,6 +1,6 @@
 <template>
 <div>
-  <span>闲鱼工具</span>
+  <!-- <span>闲鱼工具</span> -->
   <router-view></router-view>
 </div>
 

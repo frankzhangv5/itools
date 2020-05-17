@@ -1,13 +1,30 @@
 <template>
-<el-container>
-  <el-aside width="200px">宝贝列表</el-aside>
-  <el-main>宝贝详情</el-main>
-</el-container>
-
+  <el-container>
+    <el-aside width="200px">
+      <el-col>
+        <el-row>
+          <goods-info-page></goods-info-page>
+        </el-row>
+        <el-row>
+          <goods-info-page></goods-info-page>
+        </el-row>
+        <el-row>
+          <goods-info-page></goods-info-page>
+        </el-row>
+      </el-col>
+    </el-aside>
+    <el-main>
+      <goods-preview-page></goods-preview-page>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
+import GoodsInfoPage from "@/components/MyXianyuPage/TodoListPage/GoodsInfoPage.vue";
+import GoodsPreviewPage from "@/components/MyXianyuPage/TodoListPage/GoodsPreviewPage.vue";
+
 export default {
+  components: { GoodsInfoPage, GoodsPreviewPage },
   name: "todo-list-page",
   data() {
     return {};
@@ -17,4 +34,7 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+}
 </style>
