@@ -1,28 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 一级页面
 import MyDashboard from '@/components/MyDashboard.vue'
-
 import MyXianyuPage from '@/components/MyXianyuPage.vue'
-import TodoListPage from '@/components/MyXianyuPage/TodoListPage.vue'
-import InSellingPage from '@/components/MyXianyuPage/InSellingPage.vue'
-import SoldOutPage from '@/components/MyXianyuPage/SoldOutPage.vue'
-import DraftPage from '@/components/MyXianyuPage/DraftPage.vue'
-
 import MyToutiaoPage from '@/components/MyToutiaoPage.vue'
 import MyWeixinPage from '@/components/MyWeixinPage.vue'
 import MyHaoshengPage from '@/components/MyHaoshengPage.vue'
 import MySettings from '@/components/MySettings.vue'
 
+// 二级页面
+import DraftPage from '@/components/MyXianyuPage/DraftPage.vue'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'landing-page',
-    //   component: require('@/components/LandingPage').default
-    // },
+
     {
       path: '/',
       name: 'my-dashboard',
@@ -32,24 +26,6 @@ export default new Router({
       path: '/my-xianyu-page',
       name: 'my-xianyu-page',
       component: MyXianyuPage,
-      children: [
-        {
-          path: 'todo-list-page',
-          component: TodoListPage,
-        },
-        {
-          path: 'in-selling-page',
-          component: InSellingPage,
-        },
-        {
-          path: 'sold-out-page',
-          component: SoldOutPage,
-        },
-        {
-          path: 'draft-page',
-          component: DraftPage,
-        }
-      ]
     },
     {
       path: '/my-toutiao-page',
@@ -71,9 +47,27 @@ export default new Router({
       name: 'my-settings',
       component: MySettings
     },
+    // 二级页面
+    {
+      path: '/xianyu-add-goods/:url',
+      name: 'xianyu-add-goods',
+      components: {
+        default: MyXianyuPage,
+        content: DraftPage
+      },
+      props: {
+        default: false,
+        content: true
+      }
+    },
     {
       path: '*',
       redirect: '/'
     }
+    // {
+    //   path: '/',
+    //   name: 'landing-page',
+    //   component: require('@/components/LandingPage').default
+    // },
   ]
 })
