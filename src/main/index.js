@@ -23,6 +23,7 @@ function createWindow () {
     width: 1280,
     webPreferences: {
       webSecurity: false,
+      webviewTag: true
       //...
     },
   })
